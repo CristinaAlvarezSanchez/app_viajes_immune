@@ -1,0 +1,19 @@
+@hostname = http://localhost
+@port = 3000
+@url = {{hostname}}:{{port}}
+
+###
+GET {{url}}/api/hotels
+
+###
+POST {{url}}/api/hotels
+
+
+###
+PUT {{url}}/api/hotels
+
+
+###
+DELETE {{url}}/api/hotels
+
+
