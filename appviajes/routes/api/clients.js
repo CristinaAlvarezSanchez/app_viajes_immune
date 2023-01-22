@@ -1,7 +1,56 @@
+const { getAll, create, getById, update, deleteById, getClientesViajes } = require('../../models/client.model');
+
 const router = require('express').Router();
 
-router.get('/', (req, res) => {
-    res.json('todo ok')
+router.get('/', async (req, res) => {
+    try {
+        const [clientes] = await getAll();
+        res.json(clientes);
+    } catch (error) {
+        res.json({ fatal: error.message });
+    }
+});
+
+router.get('/viajes', async (req, res) => {
+    try {
+        const [clientes] = await getClientesViajes()
+        res.json(clientes)
+
+    } catch (error) {
+        res.json({ fatal: error.message });
+    }
+})
+
+router.post('/', async (req, res) => {
+    try {
+        const [result] = await create(req.body);
+        const [client] = await getById(result.insertId);
+        res.json(client[0]);
+
+    } catch (error) {
+        res.json({ fatal: error.message });
+    }
+});
+
+router.put('/:clientId', async (req, res) => {
+    try {
+        const { clientId } = req.params;
+        await update(clientId, req.body);
+        const [cliente] = await getById(clientId);
+        res.json(cliente[0]);
+    } catch (error) {
+        res.json({ fatal: error.message });
+    }
+})
+
+router.delete('/:clientId', async (req, res) => {
+    try {
+        const { clientId } = req.params;
+        const [result] = await deleteById(clientId);
+        res.json({ registros_eliminados: result.affectedRows })
+    } catch (error) {
+        res.json({ fatal: error.message });
+    }
 })
 
 module.exports = router;

@@ -5,3 +5,41 @@
 ###
 GET {{url}}/api/clients
 
+
+###
+GET {{url}}/api/clients/viajes
+
+
+###
+POST {{url}}/api/clients
+Content-Type: application/json
+
+{
+    "nombre": "María",
+    "apellidos": "Valorr",
+    "direccion": "Calle Colmenar 34 ",
+    "email": "cris@no.com",
+    "telefono": "445557765",
+    "fecha_nacimiento": "1972-05-01",
+    "dni": "1fasdf"
+  }
+
+
+###
+PUT {{url}}/api/clients/20
+Content-Type: application/json
+
+{
+    "nombre": "María",
+    "apellidos": "Valor",
+    "direccion": "Calle Colmenar 34 ",
+    "email": "mariavalorr@no.com",
+    "telefono": "445775765",
+    "fecha_nacimiento": "1972-05-01",
+    "dni": "1fasdf"
+  }
+
+###
+DELETE {{url}}/api/clients/21
+
+
