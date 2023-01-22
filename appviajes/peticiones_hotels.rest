@@ -6,14 +6,37 @@
 GET {{url}}/api/hotels
 
 ###
+GET {{url}}/api/hotels/clients/1
+
+###
 POST {{url}}/api/hotels
+Content-Type: application/json
+
+{
+    "nombre": "Hotel Leonardo", 
+    "direccion":" Calle Martin Dolmen 58", 
+    "ciudad":"Malaga", 
+    "estrellas":"3", 
+    "descripcion": "Hotel moderno en malaga, cerca de la playa", 
+    "tarifa": "200"
+}
 
 
 ###
-PUT {{url}}/api/hotels
+PUT {{url}}/api/hotels/5
+Content-Type: application/json
+
+{
+    "nombre": "Hotel Leonardo", 
+    "direccion":" Calle Martin Dolmen 58", 
+    "ciudad":"Malaga", 
+    "estrellas":"4", 
+    "descripcion": "Hotel moderno en malaga, cerca de la playa", 
+    "tarifa": "230"
+}
 
 
 ###
-DELETE {{url}}/api/hotels
+DELETE {{url}}/api/hotels/6
 
 

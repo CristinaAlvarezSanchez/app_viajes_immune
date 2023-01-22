@@ -1,4 +1,4 @@
-const { getAll, create, getById, update, deleteById, getClientesViajes } = require('../../models/client.model');
+const { getAll, create, getById, update, deleteById, getClientesViajes, getByHotel } = require('../../models/client.model');
 
 const router = require('express').Router();
 
@@ -11,11 +11,23 @@ router.get('/', async (req, res) => {
     }
 });
 
+// recupera todos los clientes y sus viajes
 router.get('/viajes', async (req, res) => {
     try {
         const [clientes] = await getClientesViajes()
         res.json(clientes)
 
+    } catch (error) {
+        res.json({ fatal: error.message });
+    }
+})
+
+// recupera los clientes de un hotel
+router.get('/hotels/:hotelId', async (req, res) => {
+    try {
+        const { hotelId } = req.params;
+        const [clientes] = await getByHotel(hotelId);
+        res.json(clientes);
     } catch (error) {
         res.json({ fatal: error.message });
     }

@@ -5,6 +5,8 @@
 ###
 GET {{url}}/api/clients
 
+###
+GET {{url}}/api/clients/hotels/1
 
 ###
 GET {{url}}/api/clients/viajes
