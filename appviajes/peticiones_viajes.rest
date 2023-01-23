@@ -6,14 +6,42 @@
 GET {{url}}/api/trips
 
 ###
-POST {{url}}/api/trips
+POST {{url}}/api/trips/4
+Content-Type: application/json
 
+{
+    "fecha_salida": "2023-04-04", 
+    "fecha_vuelta": "23-04-09", 
+    "idvuelo_ida": "pru432", 
+    "idvuelo_vuelta": "pru7765"
+}
 
 ###
-PUT {{url}}/api/trips
+POST {{url}}/api/trips/3/8
+Content-Type: application/json
 
+{
+    "fecha_salida": "2023-04-04", 
+    "fecha_vuelta": "23-04-09", 
+    "idvuelo_ida": "new32", 
+    "idvuelo_vuelta": "pned7765"
+}
+###
+GET {{url}}/api/trips/viaje/44/cliente/3
 
 ###
-DELETE {{url}}/api/trips
+PUT {{url}}/api/trips/1
+Content-Type: application/json
+
+{
+    "fecha_salida": "2023-04-04", 
+    "fecha_vuelta": "23-04-09", 
+    "idvuelo_ida": "ib6732", 
+    "idvuelo_vuelta": "new7765", 
+    "hotel_id": "3"
+}
+
+###
+DELETE {{url}}/api/trips/44
 
 

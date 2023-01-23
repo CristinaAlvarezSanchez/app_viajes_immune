@@ -33,8 +33,10 @@ router.get('/hotels/:hotelId', async (req, res) => {
     }
 })
 
+// crea un nuevo cliente
 router.post('/', async (req, res) => {
     try {
+        console.log(req.body)
         const [result] = await create(req.body);
         const [client] = await getById(result.insertId);
         res.json(client[0]);
@@ -44,6 +46,7 @@ router.post('/', async (req, res) => {
     }
 });
 
+// actualiza los datos de un cliente
 router.put('/:clientId', async (req, res) => {
     try {
         const { clientId } = req.params;
@@ -55,6 +58,7 @@ router.put('/:clientId', async (req, res) => {
     }
 })
 
+// borra un cliente
 router.delete('/:clientId', async (req, res) => {
     try {
         const { clientId } = req.params;
