@@ -2,6 +2,7 @@ const { getAll, create, getById, update, deleteById, getHotelClients } = require
 
 const router = require('express').Router();
 
+// devuelve un listado de todos los hoteles
 router.get('/', async (req, res) => {
     try {
         const [hoteles] = await getAll();
@@ -11,6 +12,7 @@ router.get('/', async (req, res) => {
     }
 });
 
+// crea un nuevo hotel
 router.post('/', async (req, res) => {
     try {
         const [result] = await create(req.body);
@@ -21,25 +23,27 @@ router.post('/', async (req, res) => {
     }
 })
 
+// modifica los datos de un hotel
 router.put('/:hotelId', async (req, res) => {
     try {
-        const { hotelId } = req.params
-        await update(hotelId, req.body)
-        const [hotel] = await getById(hotelId)
-        res.json(hotel[0])
+        const { hotelId } = req.params;
+        await update(hotelId, req.body);
+        const [hotel] = await getById(hotelId);
+        res.json(hotel[0]);
     } catch (error) {
         res.json({ fatal: error.message });
     }
-})
+});
 
+// elimina un hotel
 router.delete('/:hotelId', async (req, res) => {
     try {
         const { hotelId } = req.params;
-        const [result] = await deleteById(hotelId)
-        res.json({ registros_eliminados: result.affectedRows })
+        const [result] = await deleteById(hotelId);
+        res.json({ registros_eliminados: result.affectedRows });
     } catch (error) {
         res.json({ fatal: error.message });
     }
-})
+});
 
 module.exports = router;

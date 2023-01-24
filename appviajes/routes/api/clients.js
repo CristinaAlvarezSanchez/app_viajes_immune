@@ -2,6 +2,7 @@ const { getAll, create, getById, update, deleteById, getClientesViajes, getByHot
 
 const router = require('express').Router();
 
+// devuelve un listado de todos los clientes
 router.get('/', async (req, res) => {
     try {
         const [clientes] = await getAll();
@@ -11,18 +12,18 @@ router.get('/', async (req, res) => {
     }
 });
 
-// recupera todos los clientes y sus viajes
+// devuelve un listado de todos los clientes con datos de su viaje asociado
 router.get('/viajes', async (req, res) => {
     try {
-        const [clientes] = await getClientesViajes()
-        res.json(clientes)
+        const [clientes] = await getClientesViajes();
+        res.json(clientes);
 
     } catch (error) {
         res.json({ fatal: error.message });
     }
-})
+});
 
-// recupera los clientes de un hotel
+// devuelve un listado de los clientes de un hotel
 router.get('/hotels/:hotelId', async (req, res) => {
     try {
         const { hotelId } = req.params;
@@ -31,12 +32,11 @@ router.get('/hotels/:hotelId', async (req, res) => {
     } catch (error) {
         res.json({ fatal: error.message });
     }
-})
+});
 
 // crea un nuevo cliente
 router.post('/', async (req, res) => {
     try {
-        console.log(req.body)
         const [result] = await create(req.body);
         const [client] = await getById(result.insertId);
         res.json(client[0]);
@@ -56,17 +56,17 @@ router.put('/:clientId', async (req, res) => {
     } catch (error) {
         res.json({ fatal: error.message });
     }
-})
+});
 
 // borra un cliente
 router.delete('/:clientId', async (req, res) => {
     try {
         const { clientId } = req.params;
         const [result] = await deleteById(clientId);
-        res.json({ registros_eliminados: result.affectedRows })
+        res.json({ registros_eliminados: result.affectedRows });
     } catch (error) {
         res.json({ fatal: error.message });
     }
-})
+});
 
 module.exports = router;

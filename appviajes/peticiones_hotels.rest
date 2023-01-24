@@ -6,9 +6,6 @@
 GET {{url}}/api/hotels
 
 ###
-GET {{url}}/api/hotels/clients/1
-
-###
 POST {{url}}/api/hotels
 Content-Type: application/json
 
@@ -23,7 +20,7 @@ Content-Type: application/json
 
 
 ###
-PUT {{url}}/api/hotels/5
+PUT {{url}}/api/hotels/10
 Content-Type: application/json
 
 {
@@ -37,6 +34,6 @@ Content-Type: application/json
 
 
 ###
-DELETE {{url}}/api/hotels/6
+DELETE {{url}}/api/hotels/9
 
 

@@ -6,10 +6,10 @@
 GET {{url}}/api/clients
 
 ###
-GET {{url}}/api/clients/hotels/1
+GET {{url}}/api/clients/viajes
 
 ###
-GET {{url}}/api/clients/viajes
+GET {{url}}/api/clients/hotels/4
 
 
 ###
@@ -17,31 +17,31 @@ POST {{url}}/api/clients
 Content-Type: application/json
 
 {
-    "nombre": "María",
-    "apellidos": "Valorr",
-    "direccion": "Calle Colmenar 34 ",
-    "email": "cris@no.com",
-    "telefono": "445557765",
-    "fecha_nacimiento": "1972-05-01",
-    "dni": "1fasdf"
+    "nombre": "Nuevo contacto",
+    "apellidos": "Apellidos",
+    "direccion": "Calle de prueba 34 ",
+    "email": "prueba66@no.com",
+    "telefono": "449877765",
+    "fecha_nacimiento": "1978-05-01",
+    "dni": "1234665RU"
   }
 
 
 ###
-PUT {{url}}/api/clients/20
+PUT {{url}}/api/clients/28
 Content-Type: application/json
 
 {
-    "nombre": "María",
-    "apellidos": "Valor",
-    "direccion": "Calle Colmenar 34 ",
-    "email": "mariavalorr@no.com",
+    "nombre": "Contacto Prueba",
+    "apellidos": "Apellidos",
+    "direccion": "Calle prueba 34 ",
+    "email": "prueba24@no.com",
     "telefono": "445775765",
-    "fecha_nacimiento": "1972-05-01",
-    "dni": "1fasdf"
+    "fecha_nacimiento": "1980-05-01",
+    "dni": "12345guay"
   }
 
 ###
-DELETE {{url}}/api/clients/21
+DELETE {{url}}/api/clients/28
 
 
